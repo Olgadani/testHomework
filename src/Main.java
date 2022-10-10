@@ -1,5 +1,77 @@
-public class Main {
-    public static void main(String[] args) {
 
+
+public class Main {
+    private final static Employee[] employees = new Employee[10];
+
+
+    public static void main(String[] args) {
+        employees[0] = new Employee("Ivanov Ivan Ivanovich", 1, 15000);
+        employees[1] = new Employee("Danilov Misha Ivanovich", 1, 25000);
+        employees[2] = new Employee("Sidorova Maria Nikolaevna", 2, 10000);
+        employees[3] = new Employee("Sergeev Ivan Sergeevich", 2, 15500);
+        employees[4] = new Employee("Garanin Roman Vladimirovich",3, 35000);
+        employees[5] = new Employee("Islamov Ruslan Alexandrovich", 3, 16000);
+        employees[6] = new Employee("Mavrina Olga Sergeevna", 4, 18000);
+        employees[7] = new Employee("Davidova Irina Ivanovna",  4, 19000);
+        employees[8] = new Employee("Alekseev Bulat Nikolaevich", 5, 21000);
+        employees[9] = new Employee("Suvorov Ivan Sergeevich",  5, 27000);
+        for (Employee e : employees) {
+            System.out.println(e);
+        }
+        System.out.println("Сумма затрат на зарплату в месяц: " + sumSalary());
+        System.out.println("Максимальная зарплата: " + maxSalary());
+        System.out.println("Минимальная зарплата: " + minSalary());
+        System.out.println("Средняя зарплата: " + middleSalary());
+        System.out.println(returnFullName());
+    }
+
+    public static Object returnFullName() {
+        for (Employee employees : employees) {
+            System.out.println("ФИО: " + employees.getFullName());
+        }
+        return null;
+    }
+    public static int sumSalary() {
+        int sum = 0;
+        for (Employee employees : employees) {
+            if (employees != null) {
+                sum += employees.getSalary();
+            }
+        }
+        return sum;
+    }
+
+    public static Employee maxSalary() {
+        int max = Integer.MIN_VALUE;
+        Employee targetEmployee = null;
+        for (Employee employees : employees) {
+            if (employees != null && employees.getSalary() > max) {
+                max = employees.getSalary();
+                targetEmployee = employees;
+            }
+        }
+        return targetEmployee;
+    }
+    public static Employee minSalary() {
+        int min = Integer.MAX_VALUE;
+        Employee targetEmployee = null;
+        for (Employee employees : employees) {
+            if (employees != null && employees.getSalary() < min) {
+                min = employees.getSalary();
+                targetEmployee = employees;
+            }
+        }
+        return targetEmployee;
+    }
+
+    public static int middleSalary() {
+        int middle = 0;
+        int employeeCount = employees.length;
+        for (Employee employees : employees) {
+            if (employees != null) {
+                middle = sumSalary() / employeeCount;
+            }
+        }
+        return middle;
     }
 }
