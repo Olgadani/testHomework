@@ -20,7 +20,7 @@ public class Employee {
 
 
     public String getFullName() {
-        return fullName;
+        return this.fullName;
     }
 
     public int getId() {
@@ -36,7 +36,7 @@ public class Employee {
     }
 
     public void setDepartment(int department) {
-        this.department = department;
+        this.department = this.department;
     }
 
     public void setSalary(int salary) {
