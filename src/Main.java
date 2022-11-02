@@ -75,11 +75,24 @@ public class Main {
         for (Employee employees : employees) {
             if (employees != null) {
                 employeeCount++;
-                middle = sumSalary() / employeeCount;
             }
         }
+        middle = sumSalary() / employeeCount;
         return middle;
     }
 
-
+    public static int [] massive(int[] arr)  {
+        int[] massive2 = new int[5];
+        int j = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                arr[i] += 1;
+            }
+            if (i >= 3 && i <= 7) {
+                massive2[j] = arr[i];
+                j++;
+            }
+        }
+        return massive2;
+    }
 }
